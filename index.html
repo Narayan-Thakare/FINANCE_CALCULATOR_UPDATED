@@ -58,6 +58,9 @@
         <label for="Down_payment">Down Payment:</label>
         <input type="text" id="Down_payment" placeholder="Enter Down Payment">
 
+        <label for="Vehical_cost">Vehicle Cost:</label>
+        <input type="text" id="Vehical_cost" placeholder="Enter Vehicle Cost">
+
         <label for="Loan_Amount">Loan Amount:</label>
         <input type="text" id="Loan_Amount" placeholder="Make Sure it's 0">
 
@@ -67,8 +70,7 @@
         <label for="Additional_Charges">Additional Charges:</label>
         <input type="text" id="Additional_Charges" placeholder="Enter Additional Charges">
 
-        <label for="Vehical_cost">Vehicle Cost:</label>
-        <input type="text" id="Vehical_cost" placeholder="Enter Vehicle Cost">
+     
 
         <label for="Rate_Of_Interest">Rate of Interest:</label>
         <input type="text" id="Rate_Of_Interest" placeholder="Enter Rate of Interest">
@@ -77,9 +79,13 @@
         <input type="text" id="Tenure" placeholder="Enter Loan Tenure">
 
         <button onclick="calculateSum()">Calculate</button>
-        <button onclick="resetFields()">Reset</button>
+        <button onclick="resetFields()"> All Reset</button>
+        <button onclick="resetFields2()"> Reset</button>
+
         <p id="result"></p>
         <p id="result1"></p>
+        <p id="result2"></p>
+
 
         MADE BY NARAYAN THAKARE ....
     </div>
@@ -107,8 +113,14 @@
             var step3 = step2 + Loan_Amount;
             var EMI = step3 / (Tenure*12);
 
-            document.getElementById('result').innerText = 'Loan Amount: ' + Loan_Amount.toFixed(2);
-            document.getElementById('result1').innerText = 'EMI: ' + EMI.toFixed(2);
+
+var percentage = (Loan_Amount/Vehical_cost)*100;
+document.getElementById('result').innerText = 'Loan Amount: ' + Loan_Amount.toFixed(2);
+document.getElementById('result1').innerText = 'EMI: ' + EMI.toFixed(2);
+document.getElementById('result2').innerText = 'Percentage: ' + percentage.toFixed(2) + '%'; // Displaying percentage properly
+
+
+
         }
 
         function resetFields() {
@@ -122,6 +134,21 @@
             document.getElementById('result').innerText = '';
             document.getElementById('result1').innerText = '';
         }
+
+        function resetFields2() {
+            document.getElementById('Down_payment').value = '';
+           // document.getElementById('Loan_Amount').value = '';
+          //  document.getElementById('Processing_fees').value = '';
+          //  document.getElementById('Additional_Charges').value = '';
+            document.getElementById('Vehical_cost').value = '';
+         //   document.getElementById('Rate_Of_Interest').value = '';
+          //  document.getElementById('Tenure').value = '';
+            document.getElementById('result').innerText = '';
+            document.getElementById('result1').innerText = '';
+        }
+
+
+
     </script>
 </body>
 </html>
